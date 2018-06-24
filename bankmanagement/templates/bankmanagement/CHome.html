@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+
+<head>
+    <title>Bank Vault</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bankmanagement/css/style1.css' %}" title="style" />
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1><a href="{% url 'chome' %}">Bank<span class="logo_colour">Vault</span></a></h1>
+                    <h2>Apna hi Smjho</h2>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                    <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                    <li class="selected"><a href="{% url 'chome' %}?user={{ user.username.username }}">Home</a></li>
+                    <li><a href="{% url 'clickpass' %}?username={{ user.username.username }}">Change Password</a></li>
+                    <li><a href="{% url 'clicktransfermoney' %}?customer={{ user }}">Transfer Money</a></li>
+                    <li><a href="{% url 'clicktransactions' %}?customer={{ user }}">Transactions</a></li>
+                    <li><a href="{% url 'clickaccountinfo' %}?customer={{ user }}">Account Info</a></li>
+                    <li><a href="{% url 'index' %}">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="site_content">
+            <div id="content">
+                <h2>Hi! : {{ user.fullname }}</h2>
+                <h6>Email : {{ user.email }}</h6>
+                <h6>Mobile : {{ user.mobile }}</h6>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

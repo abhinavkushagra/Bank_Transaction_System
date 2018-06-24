@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+
+<head>
+    <title>textured_green - another page</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bankmanagement/css/style1.css' %}" title="style" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bankmanagement/css/des.css' %}" title="style" />
+
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1><a href="{% url 'behome' %}">Bank<span class="logo_colour">Vault</span></a></h1>
+                    <h2>Apna hi Smjho</h2>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                    <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                    <li><a href="{% url 'behome' %}">Home</a></li>
+                    <li><a href="{% url 'examples' %}">Examples</a></li>
+                    <li><a href="{% url 'page' %}">A Page</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="site_content">
+            <form method="POST" action="{% url 'addfixeddeposit' %}?account_number={{ account_number }}">
+                {% csrf_token %}
+                <div class="form-field">
+                    <table>
+                        <tr>
+                            <td><label for="accountnumfield" class="label--required">Account Number</label></td>
+                            <td><label id='accountnumfield'> {{ account_number }}</label> </td>
+                        </tr>
+                        <tr>
+                            <td><label for="tenure" class="label--required">Tenure</label></td>
+                            <td><span id='tenure'>{{ form.tenure }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="rate" class="label--required">Rate</label></td>
+                            <td><span id='rate'>{{ form.rate }}</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="a-btn--filled">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

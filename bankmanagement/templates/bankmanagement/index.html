@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome!!!</title>
+
+
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+
+    <link rel="stylesheet" href="{% static 'bankmanagement\css\style.css' %}" />
+    <link rel="stylesheet" href="{% static 'bankmanagement\css\style1.css' %}" />
+
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <h1><a href="{% url 'index' %}">Bank<span class="logo_colour">Vault</span></a></h1>
+                <h2>Apna hi Smjho</h2>
+            </div>
+        </div>
+    </div>
+    <div id="site_content">
+        <div class="sidebar">
+            <h2>Bank Vault is India's largest private sector bank with total consolidated assets of Rs. 9,860.43 billion (US$ 152.0 billion) at March 31, 2017 and profit after tax of Rs. 98.01 billion (US$ 1.5 billion) for the year ended March 31, 2017.</h2>
+        </div>
+        <div class="leftbar">
+            <h2>Bank Vault currently has <br>a network of 4,850 <br> Branches and<br>&nbsp;14,164 ATM's across India.</h2>
+        </div>
+    </div>
+    <div class='brand'>
+        <a href='https://www.jamiecoulter.co.uk' target='_blank'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/logo.png'>
+        </a>
+    </div>
+
+    <div class='login'>
+        <div class='login_title'>
+            <span>Login to your account</span>
+        </div>
+        <form method="POST" action="{% url 'isvalid' %}">
+            {% csrf_token %}
+            <div class='login_fields'>
+                <div class='login_fields__user'>
+                    <div class='icon'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png'>
+                    </div>
+                    <!--<input placeholder='Username' type='text'> -->
+                    {{ form.username }}
+                    <div class='validation'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+                    </div>
+                    </input>
+                </div>
+                <div class='login_fields__password'>
+                    <div class='icon'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png'>
+                    </div>
+                    <!--<input placeholder='Password' type='password'>-->
+                    {{ form.password }}
+                    <div class='validation'>
+                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+                    </div>
+                </div>
+                <div class='login_fields__submit'>
+                    <input type='submit' value='Log In'>
+                </div>
+            </div>
+        </form>
+        <div class='success'>
+            <h2>Authentication Success</h2>
+            <p>Welcome back</p>
+        </div>
+        <div class='disclaimer'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce semper laoreet placerat. Nullam semper auctor justo, rutrum posuere odio vulputate nec.</p>
+        </div>
+    </div>
+    <div class='authent'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/puff.svg'>
+        <p>Authenticating...</p>
+    </div>
+    <div class='love'>
+        <p>Made with <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/love_copy.png" /> by <a href='https://www.jamiecoulter.co.uk' target='_blank'> Abhinav Kushagra </a></p>
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+
+
+    <script src="{% static 'bankmanagement\js\index.js' %}"></script>
+
+
+
+
+</body>
+
+</html>
